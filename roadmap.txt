@@ -1,0 +1,20 @@
+Home
+    Cara
+    About Dev
+    Donate
+
+Masuk
+    Login
+
+SuperAdmin
+    Data Admin desa
+
+Admin
+    CRUD Penduduk
+    Pengumuman
+
+Penduduk
+    Peserta Vaksin
+
+User
+    
