@@ -97,18 +97,18 @@
 
             <!-- Right Column -->
             <div class="right-column d-flex flex-column align-items-lg-start align-items-center text-lg-start text-center">
-                <h2 class="title-text">3 Keys Benefit</h2>
+                <h2 class="title-text">Sudah tau kita?</h2>
                 <ul style="padding: 0; margin: 0">
                     <li class="list-unstyled" style="margin-bottom: 2rem">
                         <h4 class="title-caption d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
                             <span class="circle text-white d-flex align-items-center justify-content-center">
                                 1
                             </span>
-                            Trusted Mentor
+                            Apa ??
                         </h4>
                         <p class="text-caption">
-                            We have provided highly experienced mentors<br class="d-sm-inline d-none" />
-                            for several years.
+                            Adalah Sistem Informasi untuk membantu menanggulangi bencana covid<br class="d-sm-inline d-none" />
+                            Melalui digitalisasi pendaftaran Covid
                         </p>
                     </li>
                     <li class="list-unstyled" style="margin-bottom: 2rem">
@@ -116,11 +116,11 @@
                             <span class="circle text-white d-flex align-items-center justify-content-center">
                                 2
                             </span>
-                            Access Forever
+                            Bagaimana ??
                         </h4>
                         <p class="text-caption">
-                            Are you busy at work so it's hard to consult? don't<br class="d-sm-inline d-none" />
-                            worry because you can access anytime.
+                            Kami mendaftar seluruh kawasan di daerah. Dan membaginya ke dalam bentuk yang lebih Spesifik<br class="d-sm-inline d-none" />
+                            Agar data vaksinasi covid-19 juga lebih detail.
                         </p>
                     </li>
                     <li class="list-unstyled" style="margin-bottom: 4rem">
@@ -128,11 +128,11 @@
                             <span class="circle text-white d-flex align-items-center justify-content-center">
                                 3
                             </span>
-                            Halfpenny
+                            Kenapa ??
                         </h4>
                         <p class="text-caption">
-                            We provide economical packages for those of you<br class="d-sm-inline d-none" />
-                            who are still in school or workers.
+                            Karna kami peduli dengan Bencana dan kami punya value di bidang ini. <br class="d-sm-inline d-none" />
+                            Paperless dan social-distancing-able yang kami harapkan.
                         </p>
                     </li>
                 </ul>

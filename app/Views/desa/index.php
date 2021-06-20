@@ -21,13 +21,14 @@
                 <tbody>
 
                     <?php
-                    for ($i = 1; $i <= 10; $i++) {
+                    $i = 1;
+                    foreach ($desa as $ds) {
                         if ($i % 2 == 0) { ?>
                             <tr class="table-secondary">
-                                <th scope="row"><?= $i; ?></th>
-                                <td>Janti</td>
-                                <td>Jogoroto</td>
-                                <td>15.456</td>
+                                <th scope="row"><?= $ds['id']; ?></th>
+                                <td><?= $ds['nama_desa']; ?></td>
+                                <td><?= $ds['kecamatan']; ?></td>
+                                <td><?= $ds['jumlah']; ?></td>
                                 <td>
                                     <a href=""><button class="btn btn-success">Lihat Detail</button></a>
                                 </td>
@@ -35,10 +36,10 @@
                         <?php
                         } else { ?>
                             <tr class="table-light">
-                                <th scope="row"><?= $i; ?></th>
-                                <td>Janti</td>
-                                <td>Jogoroto</td>
-                                <td>15.456</td>
+                                <th scope="row"><?= $ds['id']; ?></th>
+                                <td><?= $ds['nama_desa']; ?></td>
+                                <td><?= $ds['kecamatan']; ?></td>
+                                <td><?= $ds['jumlah']; ?></td>
                                 <td>
                                     <a href=""><button class="btn btn-success">Lihat Detail</button></a>
                                 </td>

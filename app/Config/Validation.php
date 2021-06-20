@@ -7,6 +7,8 @@ use CodeIgniter\Validation\FileRules;
 use CodeIgniter\Validation\FormatRules;
 use CodeIgniter\Validation\Rules;
 
+use function PHPUnit\Framework\matches;
+
 class Validation
 {
 	//--------------------------------------------------------------------
@@ -23,7 +25,7 @@ class Validation
 		Rules::class,
 		FormatRules::class,
 		FileRules::class,
-		CreditCardRules::class,
+		CreditCardRules::class
 	];
 
 	/**
@@ -40,4 +42,24 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
+
+	public $register = [
+		'username' => 'alpha_numeric|is_unique[users.username]',
+		'password' => 'min_length[8]|alpha_numeric_punct',
+		'confirm' => 'matches[password]'
+	];
+
+	public $register_error = [
+		'username' => [
+			'alpha_numeric' => 'Username hanya boleh mengandung huruf dan angka',
+			'is_unique' => 'Username sudah dipakai'
+		],
+		'password' => [
+			'min_length' => 'Password harus terdiri dari 8 kata',
+			'alpha_numeric_punct' => 'Password hanya boleh mengandung angka, huruf, dan karakter yang valid'
+		],
+		'confirm' => [
+			'matches' => 'Konfirmasi password tidak cocok'
+		]
+	];
 }

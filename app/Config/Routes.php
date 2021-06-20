@@ -32,9 +32,17 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
-$routes->get('/login', 'Login::index');
 $routes->get('/about', 'Pages::about');
 $routes->get('/desa', 'Desa::index');
+
+$routes->get('auth/login', 'Auth::login');
+
+$routes->get('/user', 'User::index'); //ini isi profil
+$routes->get('/user/daftar', 'User::daftar'); //ini untuk crud daftar
+$routes->get('/user/laporan', 'User::laporan'); // ini untuk cetak 
+
+$routes->get('/admin', 'Admin::index'); //ini isi profil
+
 
 /*
  * --------------------------------------------------------------------
@@ -49,6 +57,36 @@ $routes->get('/desa', 'Desa::index');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
+
+
+
+/*
+ * Myth:Auth routes file.
+ */
+// $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) {
+// 	// Login/out
+// 	$routes->get('login', 'AuthController::login', ['as' => 'login']);
+// 	$routes->post('login', 'AuthController::attemptLogin');
+// 	$routes->get('logout', 'AuthController::logout');
+
+// 	// Registration
+// 	$routes->get('register', 'AuthController::register', ['as' => 'register']);
+// 	$routes->post('register', 'AuthController::attemptRegister');
+
+// 	// Activation
+// 	$routes->get('activate-account', 'AuthController::activateAccount', ['as' => 'activate-account']);
+// 	$routes->get('resend-activate-account', 'AuthController::resendActivateAccount', ['as' => 'resend-activate-account']);
+
+// 	// Forgot/Resets
+// 	$routes->get('forgot', 'AuthController::forgotPassword', ['as' => 'forgot']);
+// 	$routes->post('forgot', 'AuthController::attemptForgot');
+// 	$routes->get('reset-password', 'AuthController::resetPassword', ['as' => 'reset-password']);
+// 	$routes->post('reset-password', 'AuthController::attemptReset');
+// });
+
+
+
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
