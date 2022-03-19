@@ -36,6 +36,8 @@ $routes->get('/dashboard', 'User/Dashboard::index');
 $routes->get('/dashboard/tables', 'User/Dashboard::tables');
 $routes->get('/dashboard/tim', 'User/Dashboard::tim');
 $routes->get('/dashboard/series', 'User/Dashboard::series');
+$routes->get('/dashboard/jam', 'User/Dashboard::jam');
+$routes->get('/dashboard/users', 'User/Dashboard::users');
 $routes->get('/dashboard/layoutNative', 'User/Dashboard::layoutNative');
 $routes->get('/login', 'Pages::login');
 

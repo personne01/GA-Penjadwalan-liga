@@ -5,6 +5,7 @@
     table {
         width: calc(100% - 100px);
         border-collapse: collapse;
+        margin-top: 100px;
     }
 
     tr:nth-child(even) {
@@ -80,19 +81,13 @@
     }
 </style>
 
-<nav class="navgroup">
-    <h1>Tim Peserta</h1>
-    <button><a href="">Grup A</a></button>
-    <button><a href="">Grup B</a></button>
-</nav>
-
 <table>
     <thead>
         <tr>
-            <th>ID Team</th>
-            <th>Asal Kota</th>
-            <th>Pelatih</th>
-            <th>Action</th>
+            <th>ID Jam</th>
+            <th>Mulai</th>
+            <th>Selesai</th>
+            <th>Aksi</th>
         </tr>
     </thead>
     <tbody>

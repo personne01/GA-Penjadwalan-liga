@@ -30,6 +30,22 @@ class Dashboard extends BaseController
 
         return view('/dashboard/series', $data);
     }
+    public function jam()
+    {
+        $data = [
+            'title' => 'Series | Jam'
+        ];
+
+        return view('/dashboard/jam', $data);
+    }
+    public function users()
+    {
+        $data = [
+            'title' => 'Series | Users'
+        ];
+
+        return view('/dashboard/users', $data);
+    }
     public function layoutNative()
     {
         return view('dashboard/layout-native');

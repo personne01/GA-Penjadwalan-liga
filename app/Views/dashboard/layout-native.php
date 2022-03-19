@@ -226,6 +226,24 @@
             width: calc(100% - 100px);
             left: 100px;
         }
+
+        @media(max-width:1000px) {
+            .navigation {
+                width: 80px;
+            }
+
+            .main {
+                width: calc(100% - 80px);
+                left: 80px;
+                min-height: 50vh;
+                background: var(--white);
+                transition: 0.5s;
+            }
+
+            .toggle {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -250,7 +268,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/tim">
                         <span class="icon">
                             <ion-icon name="football"></ion-icon>
                         </span>
@@ -258,7 +276,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/series">
                         <span class="icon">
                             <ion-icon name="pin"></ion-icon>
                         </span>
@@ -266,7 +284,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/jam">
                         <span class="icon">
                             <ion-icon name="stopwatch"></ion-icon>
                         </span>
@@ -282,7 +300,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/users">
                         <span class="icon">
                             <ion-icon name="people"></ion-icon>
                         </span>
@@ -290,7 +308,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/">
                         <span class="icon">
                             <ion-icon name="log-out"></ion-icon>
                         </span>
