@@ -32,15 +32,15 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
-$routes->get('/dashboard', 'User/Dashboard::index');
-$routes->get('/dashboard/tables', 'User/Dashboard::tables');
-$routes->get('/dashboard/tim', 'User/Dashboard::tim');
-$routes->get('/dashboard/series', 'User/Dashboard::series');
-$routes->get('/dashboard/jam', 'User/Dashboard::jam');
-$routes->get('/dashboard/users', 'User/Dashboard::users');
-$routes->get('/dashboard/layoutNative', 'User/Dashboard::layoutNative');
+$routes->get('/dashboard', 'Dashboard::index');
+$routes->get('/dashboard/tables', 'Dashboard::tables');
+$routes->get('/dashboard/tim', 'Dashboard::tim');
+$routes->get('/dashboard/series', 'Dashboard::series');
+$routes->get('/dashboard/jam', 'Dashboard::jam');
+$routes->get('/dashboard/users', 'Users::index');
+$routes->get('/dashboard/users/(:segment)', 'Users::detail/$1');
+$routes->get('/dashboard/layoutNative', 'Dashboard::layoutNative');
 $routes->get('/login', 'Pages::login');
-
 
 
 /*

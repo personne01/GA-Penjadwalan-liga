@@ -44,11 +44,13 @@
 
     ion-icon {
         cursor: pointer;
+        font-size: large;
+        width: 50px;
     }
 
     ion-icon:hover {
         color: var(--green);
-        font-size: large;
+        font-size: x-large;
         transition: 0.5s;
     }
 

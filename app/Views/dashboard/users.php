@@ -44,11 +44,13 @@
 
     ion-icon {
         cursor: pointer;
+        font-size: large;
+        width: 50px;
     }
 
     ion-icon:hover {
         color: var(--green);
-        font-size: large;
+        font-size: x-large;
         transition: 0.5s;
     }
 
@@ -91,21 +93,24 @@
         </tr>
     </thead>
     <tbody>
-        <?php for ($i = 1; $i <= 8; $i++) { ?>
+        <?php foreach ($user as $i) : ?>
             <tr>
-                <td><?= $i; ?></td>
-                <td>Mana Yaa</td>
-                <td>Yamamoto</td>
+                <td><?= $i['id_user']; ?></td>
+                <td><?= $i['nama_user']; ?></td>
+                <td><?= $i['level_user']; ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>
                     </button>
                     <button>
-                        <ion-icon name="trash"></ion-icon>
+                        <a href="<?= base_url(); ?>/dashboard/users/<?= $i['id_user']; ?>">
+                            <ion-icon name="information-circle"></ion-icon>
+                        </a>
+
                     </button>
                 </td>
             </tr>
-        <?php  } ?>
+        <?php endforeach; ?>
 
 
     </tbody>
