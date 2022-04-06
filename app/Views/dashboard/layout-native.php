@@ -292,7 +292,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="/dashboard/penjadwalan">
                         <span class="icon">
                             <ion-icon name="calendar"></ion-icon>
                         </span>

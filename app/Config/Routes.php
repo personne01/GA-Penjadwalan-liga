@@ -38,6 +38,7 @@ $routes->get('/dashboard/tim', 'Dashboard::tim');
 $routes->get('/dashboard/series', 'Dashboard::series');
 $routes->get('/dashboard/jam', 'Dashboard::jam');
 $routes->get('/dashboard/users', 'Users::index');
+$routes->get('/dashboard/penjadwalan', 'Penjadwalan::index');
 $routes->get('/dashboard/users/(:segment)', 'Users::detail/$1');
 $routes->get('/dashboard/layoutNative', 'Dashboard::layoutNative');
 $routes->get('/login', 'Pages::login');
