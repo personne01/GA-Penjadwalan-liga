@@ -92,17 +92,22 @@
     <thead>
         <tr>
             <th>ID Team</th>
+            <th>Nama Tim</th>
             <th>Asal Kota</th>
             <th>Pelatih</th>
+            <th>Grup</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <?php for ($i = 1; $i <= 8; $i++) { ?>
+
+        <?php foreach ($tim as $i) : ?>
             <tr>
-                <td><?= $i; ?></td>
-                <td>Mana Yaa</td>
-                <td>Yamamoto</td>
+                <td><?= $i['id_tim']; ?></td>
+                <td><?= $i['nama_tim']; ?></td>
+                <td><?= $i['asal_kota']; ?></td>
+                <td><?= $i['pelatih']; ?></td>
+                <td><?= $i['grup']; ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>
@@ -112,7 +117,8 @@
                     </button>
                 </td>
             </tr>
-        <?php  } ?>
+        <?php endforeach; ?>
+
 
 
     </tbody>

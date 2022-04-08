@@ -77,7 +77,17 @@
         align-self: center;
     }
 
-    .generate button {
+    #generate {
+        width: 40%;
+        height: 40px;
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #delete {
         width: 40%;
         height: 40px;
         border: none;
@@ -88,6 +98,7 @@
 
     .activeGenerate {
         background-color: var(--green);
+        color: #ddd;
     }
 
     form {
@@ -98,6 +109,16 @@
     form p {
         font-size: 25px;
         margin-bottom: 5px;
+    }
+
+    .jadwal {
+        visibility: hidden;
+        transition-property: all;
+    }
+
+    .activeJadwal {
+        transition-delay: 3s;
+        visibility: visible;
     }
 
     input {
@@ -116,17 +137,20 @@
     <div class="inputan">
         <form action="">
             <p>Populasi</p>
-            <input type="text">
+            <input type="number" placeholder="Masukkan nilai Populasi">
             <p>Generasi</p>
-            <input type="text">
+            <input type="number" placeholder="Masukkan nilai Generasi">
             <p>Probabilitas Mutasi</p>
-            <input type="text">
+            <input type="number" placeholder="Masukkan nilai Probabilitas Mutasi">
             <p>Probabilitas Crossover</p>
-            <input type="text">
+            <input type="number" placeholder="Masukkan nilai Probabilitas Crossover">
         </form>
     </div>
-    <div class="generate" onclick="activeFunction()">
-        <button id="generate">generate</button>
+    <div class="generate">
+        <button id="generate" onclick="activeFunction()">generate</button>
+        <button id="delete">
+            <a href="/penjadwalan">Delete</a>
+        </button>
     </div>
 </div>
 
@@ -141,7 +165,7 @@
             <th>Action</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="jadwal" id="muncul">
         <?php for ($i = 1; $i <= 8; $i++) { ?>
             <tr>
                 <td><?= $i; ?></td>
@@ -167,6 +191,15 @@
         var element = document.getElementById("generate");
         element.classList.toggle("activeGenerate");
 
+        var jadwal = document.getElementById("muncul");
+        jadwal.classList.toggle("activeJadwal");
+        jadwal.classList.remove("jadwal");
+
+    }
+
+    function deleteFunction() {
+        var deleteJadwal = docment.getElementById("muncul");
+        deleteJadwal.classList.remove("activeJadwal");
     }
 </script>
 <?= $this->endSection(); ?>

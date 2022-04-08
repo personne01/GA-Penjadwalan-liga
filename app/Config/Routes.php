@@ -34,7 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::index');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/dashboard/tables', 'Dashboard::tables');
-$routes->get('/dashboard/tim', 'Dashboard::tim');
+$routes->get('/dashboard/tim', 'Tim::index');
 $routes->get('/dashboard/series', 'Dashboard::series');
 $routes->get('/dashboard/jam', 'Dashboard::jam');
 $routes->get('/dashboard/users', 'Users::index');
