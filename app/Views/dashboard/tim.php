@@ -58,7 +58,12 @@
         border: none;
     }
 
-    button a {
+
+    .navgroup a {
+        text-decoration: none;
+    }
+
+    .navgroup a button {
         text-decoration: none;
         font-size: larger;
         font-weight: bolder;
@@ -78,14 +83,17 @@
             border-radius: 10px;
         }
 
-
     }
 </style>
 
 <nav class="navgroup">
     <h1>Tim Peserta</h1>
-    <button><a href="">Grup A</a></button>
-    <button><a href="">Grup B</a></button>
+    <a href="/dashboard/tim">
+        <button>Grup A</button>
+    </a>
+    <a href="/dashboard/timB">
+        <button>Grup B</button>
+    </a>
 </nav>
 
 <table>
@@ -95,7 +103,6 @@
             <th>Nama Tim</th>
             <th>Asal Kota</th>
             <th>Pelatih</th>
-            <th>Grup</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -107,7 +114,6 @@
                 <td><?= $i['nama_tim']; ?></td>
                 <td><?= $i['asal_kota']; ?></td>
                 <td><?= $i['pelatih']; ?></td>
-                <td><?= $i['grup']; ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>

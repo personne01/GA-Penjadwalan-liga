@@ -5,7 +5,6 @@
     table {
         width: calc(100% - 100px);
         border-collapse: collapse;
-        margin-top: 100px;
     }
 
     tr:nth-child(even) {
@@ -59,7 +58,12 @@
         border: none;
     }
 
-    button a {
+
+    .navgroup a {
+        text-decoration: none;
+    }
+
+    .navgroup a button {
         text-decoration: none;
         font-size: larger;
         font-weight: bolder;
@@ -79,25 +83,35 @@
             border-radius: 10px;
         }
 
-
     }
 </style>
+
+<nav class="navgroup">
+    <h1>Tim Peserta</h1>
+    <a href="/dashboard/series">
+        <button>Grup A</button>
+    </a>
+    <a href="/dashboard/seriesB">
+        <button>Grup B</button>
+    </a>
+</nav>
 
 <table>
     <thead>
         <tr>
-            <th>ID Series</th>
-            <th>Kota</th>
-            <th>Stadion</th>
-            <th>Aksi</th>
+            <th>ID series</th>
+            <th>Tempat</th>
+            <th>Tanggal</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <?php for ($i = 1; $i <= 8; $i++) { ?>
+
+        <?php foreach ($series as $i) : ?>
             <tr>
-                <td><?= $i; ?></td>
-                <td>Mana Yaa</td>
-                <td>Yamamoto</td>
+                <td><?= $i['id_series']; ?></td>
+                <td><?= $i['tempat']; ?></td>
+                <td><?= $i['tanggal']; ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>
@@ -107,7 +121,8 @@
                     </button>
                 </td>
             </tr>
-        <?php  } ?>
+        <?php endforeach; ?>
+
 
 
     </tbody>

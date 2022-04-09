@@ -14,9 +14,20 @@ class Tim extends BaseController
     }
     public function index()
     {
-        $tim = $this->timModel->findAll();
+        $tim = $this->timModel->where('grup', 'a')
+            ->findAll();;
         $data = [
-            'title' => 'Users',
+            'title' => 'Dashboard || Tim A',
+            'tim' => $tim
+        ];
+        return view('dashboard/tim', $data);
+    }
+    public function timB()
+    {
+        $tim = $this->timModel->where('grup', 'b')
+            ->findAll();
+        $data = [
+            'title' => 'Dashboard || Tim B',
             'tim' => $tim
         ];
         return view('dashboard/tim', $data);
