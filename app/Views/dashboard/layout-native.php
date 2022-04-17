@@ -308,7 +308,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/">
+                    <a href="/login/logout">
                         <span class="icon">
                             <ion-icon name="log-out"></ion-icon>
                         </span>

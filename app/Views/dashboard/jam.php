@@ -93,11 +93,11 @@
         </tr>
     </thead>
     <tbody>
-        <?php for ($i = 1; $i <= 8; $i++) { ?>
+        <?php foreach ($jam as $i) : ?>
             <tr>
-                <td><?= $i; ?></td>
-                <td>Mana Yaa</td>
-                <td>Yamamoto</td>
+                <td><?= $i['id_jam']; ?></td>
+                <td><?= $i['jam_mulai']; ?></td>
+                <td><?= $i['jam_selesai']; ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>
@@ -107,8 +107,7 @@
                     </button>
                 </td>
             </tr>
-        <?php  } ?>
-
+        <?php endforeach; ?>
 
     </tbody>
 </table>

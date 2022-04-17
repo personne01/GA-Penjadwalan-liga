@@ -88,22 +88,24 @@
         <tr>
             <th>ID User</th>
             <th>Nama</th>
-            <th>Level User</th>
+            <th>Email</th>
+            <th>Created_at</th>
             <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($user as $i) : ?>
             <tr>
-                <td><?= $i['id_user']; ?></td>
-                <td><?= $i['nama_user']; ?></td>
-                <td><?= $i['level_user']; ?></td>
+                <td><?= $i['user_id']; ?></td>
+                <td><?= $i['user_name']; ?></td>
+                <td><?= $i['user_email']; ?></td>
+                <td><?= $i['user_created_at']; ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>
                     </button>
                     <button>
-                        <a href="<?= base_url(); ?>/dashboard/users/<?= $i['id_user']; ?>">
+                        <a href="<?= base_url(); ?>/dashboard/users/<?= $i['user_id']; ?>">
                             <ion-icon name="information-circle"></ion-icon>
                         </a>
 
