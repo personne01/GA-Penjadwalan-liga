@@ -42,7 +42,9 @@ $routes->get('/dashboard/jam', 'Jam::index');
 $routes->get('/dashboard/users', 'Users::index');
 $routes->get('/dashboard/penjadwalan', 'Penjadwalan::index');
 $routes->get('/dashboard/users/(:segment)', 'Users::detail/$1');
+$routes->get('/dashboard/tim/edit/(:segment)', 'Tim::edit/$1');
 $routes->get('/dashboard/layoutNative', 'Dashboard::layoutNative');
+$routes->get('/dashboard/createUsers', 'Users::create');
 $routes->get('/login', 'Login::index');
 $routes->get('/register', 'register::index');
 

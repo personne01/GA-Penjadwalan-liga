@@ -66,6 +66,23 @@
         color: black;
     }
 
+    .navgroup button:hover {
+        background-color: var(--green);
+        border: none;
+    }
+
+
+    .navgroup a {
+        text-decoration: none;
+    }
+
+    .navgroup a button {
+        text-decoration: none;
+        font-size: larger;
+        font-weight: bolder;
+        color: black;
+    }
+
     @media(max-width:1000px) {
         .navgroup {
             position: relative;
@@ -82,6 +99,16 @@
 
     }
 </style>
+
+<nav class="navgroup">
+    <h1>Daftar User</h1>
+    <a href="/Users/create">
+        <button>Tambah User</button>
+    </a>
+    <?php if (session()->getFlashdata('pesan')) : ?>
+        <?= session()->getFlashdata(('pesan')); ?>
+    <?php endif; ?>
+</nav>
 
 <table>
     <thead>

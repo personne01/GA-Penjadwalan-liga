@@ -115,9 +115,12 @@
                 <td><?= $i['asal_kota']; ?></td>
                 <td><?= $i['pelatih']; ?></td>
                 <td>
-                    <button>
-                        <ion-icon name="create"></ion-icon>
-                    </button>
+
+                    <a href="/tim/edit/<?= $i['id_tim']; ?>" class="btn-warning">
+                        <button>
+                            <ion-icon name="create"></ion-icon>
+                        </button>
+                    </a>
                     <button>
                         <ion-icon name="trash"></ion-icon>
                     </button>

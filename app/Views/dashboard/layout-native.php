@@ -300,7 +300,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dashboard/users">
+                    <a href="users">
                         <span class="icon">
                             <ion-icon name="people"></ion-icon>
                         </span>

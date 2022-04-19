@@ -14,6 +14,7 @@ class Jam extends BaseController
     }
     public function index()
     {
+        $session = session();
         $jam = $this->jamModel->findAll();
         $data = [
             'title' => 'Jam',
