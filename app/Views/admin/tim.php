@@ -1,4 +1,4 @@
-<?= $this->extend('dashboard/layout-native'); ?>
+<?= $this->extend('admin/layout/template'); ?>
 <?= $this->section('content'); ?>
 
 <style>
@@ -88,10 +88,10 @@
 
 <nav class="navgroup">
     <h1>Tim Peserta</h1>
-    <a href="/dashboard/series">
+    <a href="/dashboard/tim">
         <button>Grup A</button>
     </a>
-    <a href="/dashboard/seriesB">
+    <a href="/dashboard/timB">
         <button>Grup B</button>
     </a>
 </nav>
@@ -99,23 +99,28 @@
 <table>
     <thead>
         <tr>
-            <th>ID series</th>
-            <th>Tempat</th>
-            <th>Tanggal</th>
+            <th>ID Team</th>
+            <th>Nama Tim</th>
+            <th>Asal Kota</th>
+            <th>Pelatih</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
 
-        <?php foreach ($series as $i) : ?>
+        <?php foreach ($tim as $i) : ?>
             <tr>
-                <td><?= $i['id_series']; ?></td>
-                <td><?= $i['tempat']; ?></td>
-                <td><?= $i['tanggal']; ?></td>
+                <td><?= $i['id_tim']; ?></td>
+                <td><?= $i['nama_tim']; ?></td>
+                <td><?= $i['asal_kota']; ?></td>
+                <td><?= $i['pelatih']; ?></td>
                 <td>
-                    <button>
-                        <ion-icon name="create"></ion-icon>
-                    </button>
+
+                    <a href="/tim/edit/<?= $i['id_tim']; ?>" class="btn-warning">
+                        <button>
+                            <ion-icon name="create"></ion-icon>
+                        </button>
+                    </a>
                     <button>
                         <ion-icon name="trash"></ion-icon>
                     </button>

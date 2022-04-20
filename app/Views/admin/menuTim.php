@@ -1,11 +1,10 @@
-<?= $this->extend('dashboard/layout-native'); ?>
+<?= $this->extend('admin/layout/template'); ?>
 <?= $this->section('content'); ?>
 
 <style>
     table {
         width: calc(100% - 100px);
         border-collapse: collapse;
-        margin-top: 100px;
     }
 
     tr:nth-child(even) {
@@ -59,7 +58,12 @@
         border: none;
     }
 
-    button a {
+
+    .navgroup a {
+        text-decoration: none;
+    }
+
+    .navgroup a button {
         text-decoration: none;
         font-size: larger;
         font-weight: bolder;
@@ -79,35 +83,52 @@
             border-radius: 10px;
         }
 
-
     }
 </style>
+
+<nav class="navgroup">
+    <h1>Tim Peserta</h1>
+    <a href="/admin/menuTim">
+        <button>Grup A</button>
+    </a>
+    <a href="/admin/menuTimB">
+        <button>Grup B</button>
+    </a>
+</nav>
 
 <table>
     <thead>
         <tr>
-            <th>ID Jam</th>
-            <th>Mulai</th>
-            <th>Selesai</th>
-            <th>Aksi</th>
+            <th>ID Team</th>
+            <th>Nama Tim</th>
+            <th>Asal Kota</th>
+            <th>Pelatih</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($jam as $i) : ?>
+
+        <?php foreach ($tim as $i) : ?>
             <tr>
-                <td><?= $i['id_jam']; ?></td>
-                <td><?= $i['jam_mulai']; ?></td>
-                <td><?= $i['jam_selesai']; ?></td>
+                <td><?= $i['id_tim']; ?></td>
+                <td><?= $i['nama_tim']; ?></td>
+                <td><?= $i['asal_kota']; ?></td>
+                <td><?= $i['pelatih']; ?></td>
                 <td>
-                    <button>
-                        <ion-icon name="create"></ion-icon>
-                    </button>
+
+                    <a href="/tim/edit/<?= $i['id_tim']; ?>" class="btn-warning">
+                        <button>
+                            <ion-icon name="create"></ion-icon>
+                        </button>
+                    </a>
                     <button>
                         <ion-icon name="trash"></ion-icon>
                     </button>
                 </td>
             </tr>
         <?php endforeach; ?>
+
+
 
     </tbody>
 </table>

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\TimModel;
 
-class Tim extends BaseController
+class MenuTim extends BaseController
 {
     protected $timModel;
     public function __construct()
@@ -22,7 +22,7 @@ class Tim extends BaseController
             'title' => 'Dashboard || Tim A',
             'tim' => $tim
         ];
-        return view('dashboard/tim', $data);
+        return view('admin/menuTim', $data);
     }
     public function timB()
     {
@@ -32,7 +32,7 @@ class Tim extends BaseController
             'title' => 'Dashboard || Tim B',
             'tim' => $tim
         ];
-        return view('dashboard/tim', $data);
+        return view('admin/menuTim', $data);
     }
     public function edit($id_tim)
     {
@@ -42,7 +42,7 @@ class Tim extends BaseController
             'validation' => \Config\Services::validation(),
             'tim' => $this->timModel->getTim($id_tim)
         ];
-        return view('dashboard/timEdit', $data);
+        return view('admin/menuTim', $data);
     }
     public function update()
     {

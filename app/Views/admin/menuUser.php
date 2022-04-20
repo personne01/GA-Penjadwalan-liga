@@ -1,4 +1,5 @@
-<?= $this->extend('dashboard/layout-native'); ?>
+<?= $this->extend('admin/layout/template.php'); ?>
+
 <?= $this->section('content'); ?>
 
 <style>
@@ -102,40 +103,50 @@
 
 <nav class="navgroup">
     <h1>Daftar User</h1>
-    <a href="/Users/create">
+    <a href="/MenuUser/create">
         <button>Tambah User</button>
     </a>
     <?php if (session()->getFlashdata('pesan')) : ?>
         <?= session()->getFlashdata(('pesan')); ?>
     <?php endif; ?>
 </nav>
+<div>
 
+    <input type="text" id="cari" name="search" style=></input>
+
+</div>
 <table>
     <thead>
         <tr>
             <th>ID User</th>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>Created_at</th>
+            <th>Username</th>
+            <th>Role</th>
+            <th>Password</th>
             <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($user as $i) : ?>
+        <?php foreach ($users as $i) : ?>
             <tr>
-                <td><?= $i['user_id']; ?></td>
-                <td><?= $i['user_name']; ?></td>
-                <td><?= $i['user_email']; ?></td>
-                <td><?= $i['user_created_at']; ?></td>
+                <td><?= $i['id_user']; ?></td>
+                <td><?= $i['username']; ?></td>
+                <td>
+                    <?php if ($i['level_user'] == 1) {
+                        echo "Administrator";
+                    } else {
+                        echo "User";
+                    }
+                    ?>
+                </td>
+                <td><?= $i['password']; ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>
                     </button>
                     <button>
-                        <a href="<?= base_url(); ?>/dashboard/users/<?= $i['user_id']; ?>">
+                        <a href="/MenuUser/detail/<?= $i['id_user']; ?>">
                             <ion-icon name="information-circle"></ion-icon>
                         </a>
-
                     </button>
                 </td>
             </tr>
@@ -144,5 +155,42 @@
 
     </tbody>
 </table>
+<!-- <div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <?php if ($pager) : ?>
+                <?php $pagi_path = '/admin/menuUser'; ?>
+                <?php $pager->setPath($pagi_path); ?>
+                <?= $pager->links() ?>
+            <?php endif ?>
+        </div>
+    </div>
+</div> -->
+<div class="pagination">
+    <a href="#">&laquo;</a>
+    <a href="#">1</a>
+    <a href="#" class="active">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+    <a href="#">5</a>
+    <a href="#">6</a>
+    <a href="#">&raquo;</a>
+</div>
 
+<script>
+    $('.search').select2({
+        placeholder: '--- Search User ---',
+        ajax: {
+            url: '/MenuUser/ajaxSearch',
+            dataType: 'json',
+            delay: 250,
+            processResults: function(data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+</script>
 <?= $this->endSection(); ?>

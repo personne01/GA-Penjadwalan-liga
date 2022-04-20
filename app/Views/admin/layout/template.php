@@ -5,12 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#cari").autocomplete({
+                minLength: 0,
+                source: 'menuUser/list',
+                focus: function(event, ui) {
+                    $("#cari").val(ui.item.label);
+                    return false;
+                },
+                select: function(event, ui) {
+                    $("#cari").val(ui.item.label);
+
+                    $("#results").text(ui.item.username);
+                    return false;
+                }
+            })
+
+        });
+    </script>
+
+    <title><?= $title; ?></title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 5px;
         }
 
         :root {
@@ -268,7 +317,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dashboard/tim">
+                    <a href="/admin/menuTim">
                         <span class="icon">
                             <ion-icon name="football"></ion-icon>
                         </span>
@@ -276,7 +325,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dashboard/series">
+                    <a href="/admin/menuSeries">
                         <span class="icon">
                             <ion-icon name="pin"></ion-icon>
                         </span>
@@ -284,7 +333,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dashboard/jam">
+                    <a href="/admin/menuJam">
                         <span class="icon">
                             <ion-icon name="stopwatch"></ion-icon>
                         </span>
@@ -292,7 +341,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dashboard/penjadwalan">
+                    <a href="/admin/menuPenjadwalan">
                         <span class="icon">
                             <ion-icon name="calendar"></ion-icon>
                         </span>
@@ -300,7 +349,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="users">
+                    <a href="/admin/menuUser">
                         <span class="icon">
                             <ion-icon name="people"></ion-icon>
                         </span>
@@ -308,7 +357,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/login/logout">
+                    <a href="/auth/logout">
                         <span class="icon">
                             <ion-icon name="log-out"></ion-icon>
                         </span>

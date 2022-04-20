@@ -1,4 +1,4 @@
-<?= $this->extend('dashboard/layout-native'); ?>
+<?= $this->extend('admin/layout/template'); ?>
 <?= $this->section('content'); ?>
 
 <style>
@@ -149,7 +149,7 @@
     <div class="generate">
         <button id="generate" onclick="activeFunction()">generate</button>
         <button id="delete">
-            <a href="/penjadwalan">Delete</a>
+            <a href="/menuPenjadwalan">Delete</a>
         </button>
     </div>
 </div>

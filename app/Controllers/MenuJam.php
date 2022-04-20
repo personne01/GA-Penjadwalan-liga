@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\JamModel;
 
-class Jam extends BaseController
+class MenuJam extends BaseController
 {
     protected $jamModel;
     public function __construct()
@@ -21,6 +21,6 @@ class Jam extends BaseController
             'jam' => $jam
         ];
 
-        return view('dashboard/jam', $data);
+        return view('admin/menuJam', $data);
     }
 }

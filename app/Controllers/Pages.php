@@ -7,15 +7,18 @@ class Pages extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Home || GA Futsal'
+            'title' => 'Home | Sivax - Sistem Informasi Vaksin',
+            'nav' => 'Home'
+
         ];
         return view('pages/home', $data);
     }
-    public function login()
+    public function about()
     {
         $data = [
-            'title' => 'Login || GA Futsal'
+            'title' => 'About | Sivax - Sistem Informasi Vaksin',
+            'nav' => 'Page',
         ];
-        return view('auth/login', $data);
+        return view('pages/about', $data);
     }
 }

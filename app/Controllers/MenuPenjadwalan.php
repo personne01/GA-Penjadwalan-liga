@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\TimModel;
 
-class Penjadwalan extends BaseController
+class MenuPenjadwalan extends BaseController
 {
     protected $timModel;
     public function __construct()
@@ -21,6 +21,6 @@ class Penjadwalan extends BaseController
         $data = [
             'title' => 'Dashboard || Penjadwalan'
         ];
-        return view('dashboard/penjadwalan', $data);
+        return view('admin/menuPenjadwalan', $data);
     }
 }

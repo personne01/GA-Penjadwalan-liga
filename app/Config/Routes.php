@@ -8,10 +8,10 @@ $routes = Services::routes();
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
 if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-    require SYSTEMPATH . 'Config/Routes.php';
+	require SYSTEMPATH . 'Config/Routes.php';
 }
 
-/*
+/**
  * --------------------------------------------------------------------
  * Router Setup
  * --------------------------------------------------------------------
@@ -32,21 +32,21 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
-$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
-$routes->get('/dashboard/tables', 'Dashboard::tables');
-$routes->get('/dashboard/tim', 'Tim::index');
-$routes->get('/dashboard/timB', 'Tim::timB');
-$routes->get('/dashboard/series', 'Series::index');
-$routes->get('/dashboard/seriesB', 'Series::seriesB');
-$routes->get('/dashboard/jam', 'Jam::index');
-$routes->get('/dashboard/users', 'Users::index');
-$routes->get('/dashboard/penjadwalan', 'Penjadwalan::index');
-$routes->get('/dashboard/users/(:segment)', 'Users::detail/$1');
-$routes->get('/dashboard/tim/edit/(:segment)', 'Tim::edit/$1');
-$routes->get('/dashboard/layoutNative', 'Dashboard::layoutNative');
-$routes->get('/dashboard/createUsers', 'Users::create');
-$routes->get('/login', 'Login::index');
-$routes->get('/register', 'register::index');
+$routes->get('/about', 'Pages::about');
+$routes->get('/desa', 'Desa::index');
+$routes->get('auth/login', 'Auth::login');
+$routes->get('/admin', 'Admin::index'); //ini isi profil
+$routes->get('/admin/menuUser', 'MenuUser::index'); //ini isi profil
+$routes->get('/admin/addUser', 'MenuUser::create'); //ini isi profil
+$routes->get('/admin/menuTim', 'MenuTim::index');
+$routes->get('/admin/menuTimB', 'MenuTim::timB');
+$routes->get('/admin/menuSeries', 'MenuSeries::index');
+$routes->get('/admin/menuJam', 'MenuJam::index');
+$routes->get('/admin/menuPenjadwalan', 'MenuPenjadwalan::index');
+$routes->get('/user', 'User::index'); //ini isi profil
+$routes->get('/user/daftar', 'User::daftar'); //ini untuk crud daftar
+$routes->get('/user/laporan', 'User::laporan'); // ini untuk cetak 
+
 
 
 
@@ -63,6 +63,36 @@ $routes->get('/register', 'register::index');
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
+
+
+
+/*
+ * Myth:Auth routes file.
+ */
+// $routes->group('', ['namespace' => 'Myth\Auth\Controllers'], function ($routes) {
+// 	// Login/out
+// 	$routes->get('login', 'AuthController::login', ['as' => 'login']);
+// 	$routes->post('login', 'AuthController::attemptLogin');
+// 	$routes->get('logout', 'AuthController::logout');
+
+// 	// Registration
+// 	$routes->get('register', 'AuthController::register', ['as' => 'register']);
+// 	$routes->post('register', 'AuthController::attemptRegister');
+
+// 	// Activation
+// 	$routes->get('activate-account', 'AuthController::activateAccount', ['as' => 'activate-account']);
+// 	$routes->get('resend-activate-account', 'AuthController::resendActivateAccount', ['as' => 'resend-activate-account']);
+
+// 	// Forgot/Resets
+// 	$routes->get('forgot', 'AuthController::forgotPassword', ['as' => 'forgot']);
+// 	$routes->post('forgot', 'AuthController::attemptForgot');
+// 	$routes->get('reset-password', 'AuthController::resetPassword', ['as' => 'reset-password']);
+// 	$routes->post('reset-password', 'AuthController::attemptReset');
+// });
+
+
+
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }

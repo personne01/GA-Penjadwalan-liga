@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\SeriesModel;
 
-class Series extends BaseController
+class MenuSeries extends BaseController
 {
     protected $seriesModel;
     public function __construct()
@@ -20,7 +20,7 @@ class Series extends BaseController
             'title' => 'Dashboard || Series Grup A',
             'series' => $series
         ];
-        return view('dashboard/series', $data);
+        return view('admin/menuSeries', $data);
     }
     public function seriesB()
     {
@@ -30,6 +30,6 @@ class Series extends BaseController
             'title' => 'Dashboard || Series Grup B',
             'series' => $series
         ];
-        return view('dashboard/series', $data);
+        return view('admin/menuSeries', $data);
     }
 }
