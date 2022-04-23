@@ -36,8 +36,10 @@ $routes->get('/about', 'Pages::about');
 $routes->get('/desa', 'Desa::index');
 $routes->get('auth/login', 'Auth::login');
 $routes->get('/admin', 'Admin::index'); //ini isi profil
+$routes->get('/admin/menuUser', 'MenuUser::index');
 $routes->get('/admin/menuUser', 'MenuUser::index'); //ini isi profil
-$routes->get('/admin/addUser', 'MenuUser::create'); //ini isi profil
+$routes->get('/admin/addUser', 'MenuUser::create');
+$routes->get('/admin/editUser/(:segment)', 'MenuUser::edit/$1'); //ini isi profil
 $routes->get('/admin/menuTim', 'MenuTim::index');
 $routes->get('/admin/menuTimB', 'MenuTim::timB');
 $routes->get('/admin/menuSeries', 'MenuSeries::index');

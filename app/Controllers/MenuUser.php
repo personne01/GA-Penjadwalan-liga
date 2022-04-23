@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserModel;
 use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\Validation\Rules;
 
 class MenuUser extends BaseController
 {
@@ -43,11 +44,10 @@ class MenuUser extends BaseController
 
     public function index()
     {
-        $model = new UserModel();
         $data = [
             'title' => 'Admin - Daftar User',
-            'users' => $model->paginate(10),
-            'pager' => $model->pager
+            'users' => $this->userModel->paginate(10),
+            'pager' => $this->userModel->pager
         ];
         //cek apakah ada session bernama isLogin
         if (!$this->session->has('isLogin')) {
@@ -55,7 +55,7 @@ class MenuUser extends BaseController
         }
 
         if ($this->session->get('level_user') != 1) {
-            return redirect()->to('/admin');
+            return redirect()->to('/admin/menuUser');
         }
 
         return view('admin/menuUser', $data);
@@ -78,21 +78,43 @@ class MenuUser extends BaseController
         dd($w);
     }
 
-    public function detail($id_user)
-    {
-        $detailUser = $this->userModel->find($id_user);
-        dd($detailUser);
-    }
     public function create()
     {
+        session();
         helper(['form']);
         $data = [
-            'title' => 'admin || Tambah User'
+            'title' => 'admin || Tambah User',
+            'validation' => \Config\Services::validation()
         ];
         return view('admin/menuUser_add', $data);
     }
     public function save()
     {
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required|is_unique[users.username]',
+                'errors' => [
+                    'is_unique' => 'Masukkan {field} lain. username sudah terdaftar'
+                ]
+            ],
+
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'min_length' => '{field} yang anda inputkan kurang dari 8 karakter.'
+                ]
+            ],
+            'passconf' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'matches' => 'Konfirmasi password tidak cocok.'
+                ]
+            ]
+        ])) {
+
+            $validation = \Config\Services::validation();
+            return redirect()->to('/admin/addUser')->withInput()->with('validation', $validation);
+        }
 
         $data = $this->request->getPost();
         $salt = uniqid('', true);
@@ -111,7 +133,70 @@ class MenuUser extends BaseController
 
 
         //arahkan ke halaman login
-        session()->setFlashdata('login', 'Anda berhasil mendaftar, silahkan login');
-        return redirect()->to('admin/menuUser');
+        session()->setFlashdata('tambah', 'Data berhasil ditambahkan');
+        return redirect()->to('/admin/menuUser');
+    }
+    public function delete($id_user)
+    {
+        $this->userModel->delete($id_user);
+        return redirect()->to('/menuUser/index');
+    }
+
+    public function edit($id_user)
+    {
+
+        $data = [
+            'title' => 'Form Ubah Data User',
+            'validation' => \Config\Services::validation(),
+            'users' => $this->userModel->getUser($id_user)
+        ];
+        return view('admin/menuUser_edit', $data);
+    }
+    public function update($id_user)
+    {
+        $data = $this->request->getVar();
+
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required|is_unique[users.username]',
+                'errors' => [
+                    'is_unique' => 'Anda tidak merubah apapun selain password.'
+                ]
+            ],
+
+            'password' => [
+                'rules' => 'required|min_length[8]',
+                'errors' => [
+                    'min_length' => '{field} yang anda inputkan kurang dari 8 karakter.'
+                ]
+            ],
+            'passconf' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'matches' => 'Konfirmasi password tidak cocok.'
+                ]
+            ]
+        ])) {
+
+            $validation = \Config\Services::validation();
+            return redirect()->to('admin/editUser/' . $id_user)->withInput()->with('validation', $validation);
+        }
+
+
+        $salt = uniqid('', true);
+
+        //hash password digabung dengan salt
+        $password = md5($data['password']) . $salt;
+        //masukan data ke database
+        $this->userModel->save([
+            'id_user' => $id_user,
+            'username' => $data['username'],
+            'password' => $password,
+            'salt' => $salt,
+            'level_user' => 2
+        ]);
+
+        session()->setFlashdata('tambah', 'Data berhasil diubah');
+        return redirect()->to('/admin/menuUser');
     }
 }

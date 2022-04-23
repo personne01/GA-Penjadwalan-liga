@@ -10,10 +10,18 @@ class MenuSeries extends BaseController
     protected $seriesModel;
     public function __construct()
     {
+        $this->session = session();
         $this->seriesModel = new SeriesModel();
     }
     public function index()
     {
+        if (!$this->session->has('isLogin')) {
+            return redirect()->to('/auth/login');
+        }
+
+        if ($this->session->get('level_user') != 1) {
+            return redirect()->to('/admin/menuSeries');
+        }
         $series = $this->seriesModel->where('grup', 'a')
             ->findAll();
         $data = [
@@ -24,6 +32,14 @@ class MenuSeries extends BaseController
     }
     public function seriesB()
     {
+        if (!$this->session->has('isLogin')) {
+            return redirect()->to('/auth/login');
+        }
+
+        if ($this->session->get('level_user') != 1) {
+            return redirect()->to('/admin/menuSeriesB');
+        }
+
         $series = $this->seriesModel->where('grup', 'b')
             ->findAll();
         $data = [

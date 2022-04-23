@@ -42,39 +42,44 @@
 </style>
 
 <div class="ini">
-    <h3>Tambah User</h3>
+    <h3>Edit User</h3>
 
-    <form action="/menuUser/save" method="post">
+    <form action="/menuUser/update/<?= $users['id_user']; ?>" method="post">
         <?= csrf_field(); ?>
+        <div style="margin-bottom: 1.75rem">
+            <label for="id_user" class="d-block input-label">ID User</label>
+            <input style="font-weight: bolder;" type="text" name="id_user" value="<?= $users['id_user']; ?>" disabled>
+        </div>
+
         <div style="margin-bottom: 1.75rem">
             <label for="username" class="d-block input-label">Username</label>
             <div class="d-flex w-100 div-input">
-                <input class="input-field border-0 invalid-feedback" type="text" name="username" id="username" placeholder="Masukkan Username" autocomplete="on" required autofocus value="<?= old('username'); ?>" />
+                <input class="input-field border-0 invalid-feedback" type="text" name="username" id="username" placeholder="Masukkan Username" autocomplete="on" required autofocus value="<?= $users['username']; ?>" />
                 <div style="width: 50%; margin:20px">
-                    <h3 style="font-weight:300; color:red;"><?= $validation->getError('username'); ?></h3>
+                    <h3 style="background-color: red; font-weight:300; color:white;"><?= $validation->getError('username'); ?></h3>
                 </div>
             </div>
         </div>
         <div style="margin-top: 1rem">
             <label for="password" class="d-block input-label">Password</label>
             <div class="d-flex w-100 div-input">
-                <input class="input-field border-0" type="password" name="password" id="txtPassword password-content-3-5" placeholder="Your Password" minlength="6" required value="<?= old('password'); ?>" />
+                <input class="input-field border-0" type="password" name="password" id="txtPassword password-content-3-5" placeholder="Your Password" minlength="6" required value="" />
                 <div onclick="togglePassword()">
 
                 </div>
                 <div style="width: 50%; margin:20px">
-                    <h3 style="font-weight:300; color:red;"><?= $validation->getError('password'); ?></h3>
+                    <h3 style="background-color: red; font-weight:300; color:white;"><?= $validation->getError('password'); ?></h3>
                 </div>
             </div>
         </div>
         <div style="margin-top: 1rem">
             <label for="passconf" class="d-block input-label">Konfirmasi Password</label>
             <div class="d-flex w-100 div-input">
-                <input class="input-field border-0" type="password" name="passconf" id="txtConfirmPassword password-content-3-5" placeholder="Konfirmasi Password" minlength="6" required value="<?= old('passconf'); ?>" />
+                <input class="input-field border-0" type="password" name="passconf" id="txtConfirmPassword password-content-3-5" placeholder="Konfirmasi Password" minlength="6" required value="" />
                 <div onclick="togglePassword()">
                 </div>
                 <div style="width: 50%; margin:20px">
-                    <h3 style="font-weight:300; color:red;"><?= $validation->getError('passconf'); ?></h3>
+                    <h3 style="background-color: red; font-weight:300; color:white;"><?= $validation->getError('passconf'); ?></h3>
                 </div>
             </div>
         </div>

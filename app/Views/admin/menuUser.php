@@ -3,10 +3,29 @@
 <?= $this->section('content'); ?>
 
 <style>
+    .pagination {
+        width: 100%;
+        margin: 10px auto;
+        font-size: larger;
+        position: relative;
+        margin: 20px 50%;
+    }
+
+    .pagination li {
+        display: inline-block;
+        background-color: var(--green);
+        border-radius: 15%;
+        margin: auto;
+    }
+
+    .pagination li :hover {
+        color: var(--green);
+    }
+
     table {
         width: calc(100% - 100px);
         border-collapse: collapse;
-        margin-top: 100px;
+        margin-top: 80px;
     }
 
     tr:nth-child(even) {
@@ -106,15 +125,15 @@
     <a href="/MenuUser/create">
         <button>Tambah User</button>
     </a>
-    <?php if (session()->getFlashdata('pesan')) : ?>
-        <?= session()->getFlashdata(('pesan')); ?>
-    <?php endif; ?>
+    <div style="width:50%; font-size: large; background-color: var(--green); margin-top: 20px;">
+        <?php if (session()->getFlashdata('tambah')) : ?>
+            <?= session()->getFlashdata('tambah'); ?>
+        <?php endif; ?>
+    </div>
+
 </nav>
-<div>
 
-    <input type="text" id="cari" name="search" style=></input>
 
-</div>
 <table>
     <thead>
         <tr>
@@ -126,6 +145,7 @@
         </tr>
     </thead>
     <tbody>
+
         <?php foreach ($users as $i) : ?>
             <tr>
                 <td><?= $i['id_user']; ?></td>
@@ -141,12 +161,20 @@
                 <td><?= $i['password']; ?></td>
                 <td>
                     <button>
-                        <ion-icon name="create"></ion-icon>
+                        <a href="/admin/editUser/<?= $i['id_user']; ?>">
+                            <ion-icon name="create"></ion-icon>
+                        </a>
                     </button>
                     <button>
-                        <a href="/MenuUser/detail/<?= $i['id_user']; ?>">
-                            <ion-icon name="information-circle"></ion-icon>
-                        </a>
+                        <form action="<?= site_url('/') ?>/menuUser/delete/<?= $i['id_user']; ?>" method="post">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" onclick="return confirm('Apakah anda yakin menghapus data tersebut');">
+                                <ion-icon name="trash"></ion-icon>
+                            </button>
+                        </form>
+
+
                     </button>
                 </td>
             </tr>
@@ -155,29 +183,21 @@
 
     </tbody>
 </table>
-<!-- <div class="row">
-    <div class="col-md-12">
-        <div class="row">
-            <?php if ($pager) : ?>
-                <?php $pagi_path = '/admin/menuUser'; ?>
-                <?php $pager->setPath($pagi_path); ?>
-                <?= $pager->links() ?>
-            <?php endif ?>
-        </div>
-    </div>
-</div> -->
-<div class="pagination">
-    <a href="#">&laquo;</a>
-    <a href="#">1</a>
-    <a href="#" class="active">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
-    <a href="#">6</a>
-    <a href="#">&raquo;</a>
-</div>
 
-<script>
+
+<?= $pager->links(); ?>
+<!-- <div class="pagination">
+    <a href="#" style="text-decoration: ;">&laquo;</a>
+    <a href="#" style="text-decoration: ;">1</a>
+    <a href="#" style="text-decoration: ;" class="active">2</a>
+    <a href="#" style="text-decoration: ;">3</a>
+    <a href="#" style="text-decoration: ;">4</a>
+    <a href="#" style="text-decoration: ;">5</a>
+    <a href="#" style="text-decoration: ;">6</a>
+    <a href="#" style="text-decoration: ;">&raquo;</a>
+</div> -->
+
+<!-- <script>
     $('.search').select2({
         placeholder: '--- Search User ---',
         ajax: {
@@ -192,5 +212,5 @@
             cache: true
         }
     });
-</script>
+</script> -->
 <?= $this->endSection(); ?>

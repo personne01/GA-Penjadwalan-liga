@@ -10,12 +10,18 @@ class MenuTim extends BaseController
     protected $timModel;
     public function __construct()
     {
-        $session = session();
+        $this->session = session();
         $this->timModel = new TimModel();
     }
     public function index()
     {
-        session()->start();
+        if (!$this->session->has('isLogin')) {
+            return redirect()->to('/auth/login');
+        }
+
+        if ($this->session->get('level_user') != 1) {
+            return redirect()->to('/admin/menuTim');
+        }
         $tim = $this->timModel->where('grup', 'a')
             ->findAll();;
         $data = [
@@ -26,6 +32,13 @@ class MenuTim extends BaseController
     }
     public function timB()
     {
+        if (!$this->session->has('isLogin')) {
+            return redirect()->to('/auth/login');
+        }
+
+        if ($this->session->get('level_user') != 1) {
+            return redirect()->to('/admin/menuTimB');
+        }
         $tim = $this->timModel->where('grup', 'b')
             ->findAll();
         $data = [

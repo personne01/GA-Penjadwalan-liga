@@ -33,7 +33,7 @@
                     </ul>
                 </div>
                 <div class="modal-footer border-0 gap-3" style="padding: 2rem; padding-top: 0.75rem">
-                    <button class="btn btn-default btn-no-fill">Log In</button>
+                    <a href="auth/login" class="btn btn-default btn-no-fill">Log In</a>
                     <button class="btn btn-fill text-white">Try Now</button>
                 </div>
             </div>
@@ -56,7 +56,7 @@
             </li>
         </ul>
         <div class="gap-3">
-            <a href="/login" class="btn btn-default btn-no-fill">Log In</a>
+            <a href="auth/login" class="btn btn-default btn-no-fill">Log In</a>
             <a class="btn btn-fill text-white">Sign Up</a>
         </div>
     </div>
