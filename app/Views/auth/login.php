@@ -51,7 +51,7 @@
       </form>
       <p class="text-center bottom-caption">
         Belum punya akun Sivax?
-        <a class="green-bottom-caption" href="/register">
+        <a class="green-bottom-caption" href="/auth/register">
           Daftar Di sini
         </a>
       </p>

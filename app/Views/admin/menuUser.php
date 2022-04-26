@@ -134,6 +134,12 @@
 </nav>
 
 
+<div style="width:50%; font-size: large; background-color: var(--green); margin-top: 20px;">
+    <?php if (session()->getFlashdata('tambah')) : ?>
+        <?= session()->getFlashdata('tambah'); ?>
+    <?php endif; ?>
+</div>
+
 <table>
     <thead>
         <tr>

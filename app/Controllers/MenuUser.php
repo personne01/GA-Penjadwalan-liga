@@ -60,23 +60,6 @@ class MenuUser extends BaseController
 
         return view('admin/menuUser', $data);
     }
-    public function list()
-    {
-        $model = new UserModel();
-        $request = \Config\Services::request();
-        $id = $request->getVar('term');
-        $user = $model->like('id_user', $id)->findAll();
-        $w = array();
-        foreach ($user as $rt) :
-            $w[] = [
-                "label" => $rt['id_user'],
-                "username" => $rt['username'],
-            ];
-
-        endforeach;
-        // echo json_encode($w);
-        dd($w);
-    }
 
     public function create()
     {

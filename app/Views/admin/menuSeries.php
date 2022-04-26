@@ -96,6 +96,12 @@
     </a>
 </nav>
 
+<div style="width:50%; font-size: large; background-color: var(--green); margin-top: 20px;">
+    <?php if (session()->getFlashdata('tambah')) : ?>
+        <?= session()->getFlashdata('tambah'); ?>
+    <?php endif; ?>
+</div>
+
 <table>
     <thead>
         <tr>
@@ -114,7 +120,10 @@
                 <td><?= $i['tanggal']; ?></td>
                 <td>
                     <button>
-                        <ion-icon name="create"></ion-icon>
+                        <a href="/menuSeries/edit/<?= $i['id_series']; ?>" style="color: black;">
+                            <ion-icon name="create"></ion-icon>
+                        </a>
+
                     </button>
                     <button>
                         <ion-icon name="trash"></ion-icon>

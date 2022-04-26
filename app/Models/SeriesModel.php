@@ -8,10 +8,13 @@ class SeriesModel extends Model
 {
     protected $table = 'series';
     protected $primaryKey = 'id_series';
-    protected $useTimestamps = true;
+    protected $allowedFields = ['id_series', 'tempat', 'tanggal'];
 
-    public function getSeries()
+    public function getSeries($id_series = false)
     {
-        return $this->db->table('series')->get()->getResultArray();
+        if ($id_series == false) {
+            return $this->findAll();
+        }
+        return $this->where(['id_series' => $id_series])->first();
     }
 }

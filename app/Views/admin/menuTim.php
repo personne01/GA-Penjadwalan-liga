@@ -53,6 +53,11 @@
         transition: 0.5s;
     }
 
+    button a {
+        text-decoration: none;
+        color: black;
+    }
+
     .navgroup button:hover {
         background-color: var(--green);
         border: none;
@@ -96,6 +101,13 @@
     </a>
 </nav>
 
+
+<div style="width:50%; font-size: large; background-color: var(--green); margin-top: 20px;">
+    <?php if (session()->getFlashdata('tambah')) : ?>
+        <?= session()->getFlashdata('tambah'); ?>
+    <?php endif; ?>
+</div>
+
 <table>
     <thead>
         <tr>
@@ -115,14 +127,13 @@
                 <td><?= $i['asal_kota']; ?></td>
                 <td><?= $i['pelatih']; ?></td>
                 <td>
-
-                    <a href="/tim/edit/<?= $i['id_tim']; ?>" class="btn-warning">
-                        <button>
-                            <ion-icon name="create"></ion-icon>
-                        </button>
-                    </a>
                     <button>
-                        <ion-icon name="trash"></ion-icon>
+                        <a href="/menuTim/edit/<?= $i['id_tim']; ?>" class="btn-warning">
+                            <ion-icon name="create"></ion-icon>
+                        </a>
+                    </button>
+                    <button>
+                        <ion-icon name="information-circle"></ion-icon>
                     </button>
                 </td>
             </tr>

@@ -34,7 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::index');
 $routes->get('/about', 'Pages::about');
 $routes->get('/desa', 'Desa::index');
-$routes->get('auth/login', 'Auth::login');
+$routes->get('/auth/login', 'Auth::login');
+$routes->get('/auth/register', 'Auth::register');
 $routes->get('/admin', 'Admin::index'); //ini isi profil
 $routes->get('/admin/menuUser', 'MenuUser::index');
 $routes->get('/admin/menuUser', 'MenuUser::index'); //ini isi profil
@@ -43,7 +44,9 @@ $routes->get('/admin/editUser/(:segment)', 'MenuUser::edit/$1'); //ini isi profi
 $routes->get('/admin/menuTim', 'MenuTim::index');
 $routes->get('/admin/menuTimB', 'MenuTim::timB');
 $routes->get('/admin/menuSeries', 'MenuSeries::index');
+$routes->get('/admin/editSeries/(:segment)', 'MenuSeries::edit/$1');
 $routes->get('/admin/menuJam', 'MenuJam::index');
+$routes->get('/admin/editJam/(:segment)', 'MenuJam::edit/$1');
 $routes->get('/admin/menuPenjadwalan', 'MenuPenjadwalan::index');
 $routes->get('/user', 'User::index'); //ini isi profil
 $routes->get('/user/daftar', 'User::daftar'); //ini untuk crud daftar

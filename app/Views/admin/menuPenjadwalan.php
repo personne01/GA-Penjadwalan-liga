@@ -112,7 +112,7 @@
     }
 
     .jadwal {
-        visibility: hidden;
+        /* visibility: hidden; */
         transition-property: all;
     }
 
@@ -133,7 +133,7 @@
     }
 </style>
 
-<div class="formToCount">
+<!-- <div class="formToCount">
     <div class="inputan">
         <form action="">
             <p>Populasi</p>
@@ -152,25 +152,37 @@
             <a href="/menuPenjadwalan">Delete</a>
         </button>
     </div>
+</div> -->
+
+<div style="margin: 40px auto; width : 100%;">
+    <h1>Jadwal Pertanndingan</h1>
 </div>
-
-
 
 <table>
     <thead>
         <tr>
-            <th>ID Team</th>
-            <th>Asal Kota</th>
-            <th>Pelatih</th>
-            <th>Action</th>
+            <th>Id</th>
+            <th>Pertandingan</th>
+            <th>Id Series</th>
+            <th>Tempat</th>
+            <th>Waktu</th>
+            <th>Tanggal</th>
+            <th>action</th>
         </tr>
     </thead>
+
     <tbody class="jadwal" id="muncul">
-        <?php for ($i = 1; $i <= 8; $i++) { ?>
+        <?php foreach ($penjadwalan as $i) : ?>
+
+
             <tr>
-                <td><?= $i; ?></td>
-                <td>Mana Yaa</td>
-                <td>Yamamoto</td>
+                <td><?= $i['id_penjadwalan']; ?></td>
+                <td>
+                </td>
+                <td><?= $i['id_series'] ?></td>
+                <td><?= $i['tempat'] ?></td>
+                <td><?= $i['jam_mulai'] . '-' . $i['jam_selesai'] ?></td>
+                <td><?= $i['tanggal'] ?></td>
                 <td>
                     <button>
                         <ion-icon name="create"></ion-icon>
@@ -180,9 +192,7 @@
                     </button>
                 </td>
             </tr>
-        <?php  } ?>
-
-
+        <?php endforeach; ?>
     </tbody>
 </table>
 

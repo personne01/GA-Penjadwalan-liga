@@ -30,4 +30,25 @@ class MenuJam extends BaseController
 
         return view('admin/menuJam', $data);
     }
+    public function edit($id_jam)
+    {
+        $data = [
+            'title' => 'ubah data jam',
+            'validation' => \Config\Services::validation(),
+            'jam' => $this->jamModel->getJam($id_jam)
+        ];
+        return view('admin/menuJam_edit', $data);
+    }
+    public function update($id_jam)
+    {
+        $data = $this->request->getVar();
+        $this->jamModel->save([
+            'id_jam' => $id_jam,
+            'jam_mulai' => $data['jam_mulai'],
+            'jam_selesai' => $data['jam_selesai']
+        ]);
+
+        session()->setFlashdata('tambah', 'Data berhasil diubah');
+        return redirect()->to('/admin/menuJam');
+    }
 }

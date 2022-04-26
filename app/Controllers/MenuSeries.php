@@ -18,7 +18,6 @@ class MenuSeries extends BaseController
         if (!$this->session->has('isLogin')) {
             return redirect()->to('/auth/login');
         }
-
         if ($this->session->get('level_user') != 1) {
             return redirect()->to('/admin/menuSeries');
         }
@@ -47,5 +46,26 @@ class MenuSeries extends BaseController
             'series' => $series
         ];
         return view('admin/menuSeries', $data);
+    }
+    public function edit($id_series)
+    {
+        $data = [
+            'title' => 'ubah data series',
+            'validation' => \Config\Services::validation(),
+            'series' => $this->seriesModel->getSeries($id_series)
+        ];
+        return view('admin/menuSeries_edit', $data);
+    }
+    public function update($id_series)
+    {
+        $data = $this->request->getVar();
+        $this->seriesModel->save([
+            'id_series' => $id_series,
+            'tempat' => $data['tempat'],
+            'tanggal' => $data['tanggal']
+        ]);
+
+        session()->setFlashdata('tambah', 'Data berhasil diubah');
+        return redirect()->to('/admin/menuSeries');
     }
 }
