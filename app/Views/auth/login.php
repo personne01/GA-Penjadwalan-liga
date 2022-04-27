@@ -19,7 +19,7 @@
       $password = $session->getFlashdata('password');
       ?>
 
-      <h3 class="title-text">Login Sivax</h3>
+      <h3 class="title-text">Login</h3>
 
       <form style="margin-top: 1.5rem" action="/auth/valid_login" method="post">
         <div style="margin-bottom: 1.75rem">
@@ -50,7 +50,7 @@
         </button>
       </form>
       <p class="text-center bottom-caption">
-        Belum punya akun Sivax?
+        Belum punya akun?
         <a class="green-bottom-caption" href="/auth/register">
           Daftar Di sini
         </a>

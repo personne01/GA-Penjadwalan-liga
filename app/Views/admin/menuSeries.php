@@ -125,9 +125,6 @@
                         </a>
 
                     </button>
-                    <button>
-                        <ion-icon name="trash"></ion-icon>
-                    </button>
                 </td>
             </tr>
         <?php endforeach; ?>

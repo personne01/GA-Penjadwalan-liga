@@ -10,21 +10,23 @@ $this->extend('layout/template');
     <div class="mx-auto d-flex flex-lg-row flex-column hero">
       <!-- Left Column -->
       <div class="left-column d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">
-        <p class="text-caption">Website forecast Ekspor</p>
+        <p class="text-caption">Website Penjadwalan Liga Futsal Menggunakan Algoritma Genetika</p>
         <h1 class="title-text-big">
-          Ekspor<br class="d-lg-block d-none" />
-          Migas dan Non Migas Indonesia
+          Studi Kasus<br class="d-lg-block d-none" />
+          Liga Profesional Futsal Indonesia
         </h1>
         <div class="d-flex flex-sm-row flex-column align-items-center mx-lg-0 mx-auto justify-content-center gap-3">
           <button class="btn d-inline-flex mb-md-0 btn-try text-white">
-            Login
+            <a style="text-decoration: none; color:white;" href="/auth/login">Login</a>
           </button>
           <button class="btn btn-outline">
             <div class="d-flex align-items-center">
               <svg class="me-2" width="13" height="12" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.9293 7.99988L6.66668 5.15788V10.8419L10.9293 7.99988ZM12.9173 8.27722L5.85134 12.9879C5.80115 13.0213 5.74283 13.0404 5.6826 13.0433C5.62238 13.0462 5.5625 13.0327 5.50934 13.0042C5.45619 12.9758 5.41175 12.9334 5.38075 12.8817C5.34976 12.83 5.33337 12.7708 5.33334 12.7105V3.28922C5.33337 3.22892 5.34976 3.16976 5.38075 3.11804C5.41175 3.06633 5.45619 3.02398 5.50934 2.99552C5.5625 2.96706 5.62238 2.95355 5.6826 2.95644C5.74283 2.95932 5.80115 2.97848 5.85134 3.01188L12.9173 7.72255C12.963 7.75299 13.0004 7.79423 13.0263 7.84261C13.0522 7.89099 13.0658 7.94501 13.0658 7.99988C13.0658 8.05475 13.0522 8.10878 13.0263 8.15716C13.0004 8.20553 12.963 8.24678 12.9173 8.27722Z" fill="#555B61" />
               </svg>
-              Dokumentasi
+              <a style="text-decoration: none; color:var(--green);" href="https://github.com/personne01/GA-Penjadwalan-liga" target="_blank">
+                Dokumentasi
+              </a>
             </div>
           </button>
         </div>
@@ -225,28 +227,28 @@ $this->extend('layout/template');
           </div>
           <h3 class="icon-title">Efektif dan efisien</h3>
           <p class="icon-caption">
-            mempermudah dan mempercepat pendataan<br />
-            dalam penanganan covid-19 sampai ke desa
+            mempermudah dan mempercepat<br />
+            dalam melakukan Penjadwalan liga
           </p>
         </div>
         <div class="col-lg-4 column">
           <div class="icon">
             <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-6.png" alt="" />
           </div>
-          <h3 class="icon-title">Media yang Transparant</h3>
+          <h3 class="icon-title">Transparant</h3>
           <p class="icon-caption">
-            Sebagai media yang mobile dan update<br />
-            dapat dilihat oleh siapapun dan kapanpun
+            Penjadwalan ini mendukung panitia untuk meningkatkan kepercayaan<br />
+            masyarakat bahwa tidak ada keberpihakan panitia terhadap peserta
           </p>
         </div>
         <div class="col-lg-4 column">
           <div class="icon">
             <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content2/Content-2-7.png" alt="" />
           </div>
-          <h3 class="icon-title">Social distancing - able</h3>
+          <h3 class="icon-title">Mobile dan Praktis</h3>
           <p class="icon-caption">
-            Dapat melakukan aktivitas program vaksin<br />
-            tanpa harus berkerumun
+            Dapat dilakukan sekali klik<br />
+            Dan dapat dilakukan di mana saja
           </p>
         </div>
       </div>
@@ -260,7 +262,7 @@ $this->extend('layout/template');
           </div>
           <div class="flex-grow-1 text-lg-start text-center card-text">
             <h3 class="card-title">
-              Lihat jadwal dan Pendaftaran
+              Lihat Penjadwalan
             </h3>
             <p class="card-caption">
               Our tools for business analysis helps an organization
@@ -269,7 +271,9 @@ $this->extend('layout/template');
             </p>
           </div>
           <div class="card-btn-space">
-            <button class="btn btn-card text-white" href="/login">Login</button>
+            <button class="btn btn-card text-white">
+              <a style="text-decoration: none; color:white;" href="/auth/login">Login</a>
+            </button>
             <button class="btn btn-outline">Demo Version</button>
           </div>
         </div>
@@ -368,88 +372,7 @@ $this->extend('layout/template');
   </style>
 
   <div class="footer-2-2 container-xxl mx-auto position-relative p-0" style="font-family: 'Poppins', sans-serif">
-    <div class="list-footer">
-      <div class="row gap-md-0 gap-3">
-        <div class="col-lg-3 col-md-6">
-          <div class="">
-            <div class="list-space">
-              <img src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header2/Header-2-5.png" alt="" />
-            </div>
-            <nav class="list-unstyled">
-              <li class="list-space">
-                <a href="" class="list-menu">Home</a>
-              </li>
-              <li class="list-space">
-                <a href="" class="list-menu">About</a>
-              </li>
-              <li class="list-space">
-                <a href="" class="list-menu">Features</a>
-              </li>
-              <li class="list-space">
-                <a href="" class="list-menu">Pricing</a>
-              </li>
-              <li class="list-space">
-                <a href="" class="list-menu">Testimonial</a>
-              </li>
-              <li class="list-space">
-                <a href="" class="list-menu">Help</a>
-              </li>
-            </nav>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h2 class="footer-text-title">Product</h2>
-          <nav class="list-unstyled">
-            <li class="list-space">
-              <a href="" class="list-menu">Real Time Analytic</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Easy to Operate</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Full Secured</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Analytic Tool</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Story</a>
-            </li>
-          </nav>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h2 class="footer-text-title">Company</h2>
-          <nav class="list-unstyled">
-            <li class="list-space">
-              <a href="" class="list-menu">Contact Us</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Blog</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Culture</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Security</a>
-            </li>
-          </nav>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <h2 class="footer-text-title">Support</h2>
-          <nav class="list-unstyled">
-            <li class="list-space">
-              <a href="" class="list-menu">Getting Started</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Help Center</a>
-            </li>
-            <li class="list-space">
-              <a href="" class="list-menu">Server Status</a>
-            </li>
-          </nav>
-        </div>
-      </div>
-    </div>
+
 
     <div class="border-color info-footer">
       <div class="">

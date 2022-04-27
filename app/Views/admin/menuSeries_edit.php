@@ -72,7 +72,7 @@
                 </div> -->
             </div>
         </div>
-        <input type="submit" id="btnSubmit" value="Submit"> </input>
+        <input type="submit" id="btnSubmit" value="Save"> </input>
     </form>
 </div>
 <?= $this->endSection(); ?>

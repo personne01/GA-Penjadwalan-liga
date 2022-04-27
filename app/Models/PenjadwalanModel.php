@@ -8,8 +8,7 @@ class PenjadwalanModel extends Model
 {
     protected $table = 'penjadwalan';
     protected $primaryKey = 'id_penjadwalan';
-    protected $allowedFields = ['match_tim', 'id_series', 'tempat', 'id_jam'];
-    protected $useTimestamps = true;
+    protected $allowedFields = ['timA', 'timB', 'id_series', 'id_jam'];
 
     public function getPenjadwalan()
     {

@@ -84,10 +84,14 @@
 </style>
 
 
+
 <div style="width:50%; font-size: large; background-color: var(--green); margin-top: 20px;">
     <?php if (session()->getFlashdata('tambah')) : ?>
         <?= session()->getFlashdata('tambah'); ?>
     <?php endif; ?>
+</div>
+<div>
+    <h1>Jam Pertandingan</h1>
 </div>
 
 <table>
@@ -109,11 +113,6 @@
                     <a href="/menuJam/edit/<?= $i['id_jam']; ?>">
                         <button>
                             <ion-icon name="create"></ion-icon>
-                        </button>
-                    </a>
-                    <a href="">
-                        <button>
-                            <ion-icon name="information-circle"></ion-icon>
                         </button>
                     </a>
                 </td>

@@ -163,7 +163,6 @@
 <table>
     <thead>
         <tr>
-            <th>id_penjadwalan</th>
             <th>Tim Bertanding</th>
             <th>Tempat</th>
             <th>Id_series</th>
@@ -177,22 +176,11 @@
         <?php for ($i = 1; $i <= 7; $i++) {  ?>
             <?php for ($j = 1; $j <= 4; $j++) { ?>
                 <tr>
-                    <td>
-                    </td>
                     <td><?= $pert[$i][$j]['a'][0]['nama_tim'] . " VS " . $pert[$i][$j]['b'][0]['nama_tim'] ?></td>
                     <td><?= $pert[$i][$j]['series'][0]['tempat'] ?></td>
                     <td><?= $pert[$i][$j]['series'][0]['id_series'] ?></td>
                     <td><?= $pert[$i][$j]['series'][0]['tanggal'] ?></td>
                     <td><?= $pert[$i][$j]['jam'][0]['jam_mulai'] . " - " . $pert[$i][$j]['jam'][0]['jam_selesai'] ?></td>
-
-                    <td>
-                        <button>
-                            <ion-icon name="create"></ion-icon>
-                        </button>
-                        <button>
-                            <ion-icon name="trash"></ion-icon>
-                        </button>
-                    </td>
                 </tr>
             <?php } ?>
         <?php } ?>

@@ -7,6 +7,8 @@ use App\Models\PenjadwalanModel;
 use App\Models\SeriesModel;
 use App\Models\JamModel;
 use App\Models\TimModel;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class MenuPenjadwalan extends BaseController
 {
@@ -43,7 +45,7 @@ class MenuPenjadwalan extends BaseController
     }
     public function generate()
     {
-        for ($i = 1; $i <= 8; $i++) {
+        for ($i = 1; $i <= 7; $i++) {
             for ($j = 1; $j <= 4; $j++) {
                 $a = null;
                 $b = null;
@@ -61,10 +63,62 @@ class MenuPenjadwalan extends BaseController
                 ];
             }
         }
+        for ($i = 1; $i <= 7; $i++) {
+            for ($j = 1; $j <= 4; $j++) {
+                $this->penjadwalanModel->save([
+                    'timA' => $pert[$i][$j]['a'][0]['nama_tim'],
+                    'timB' => $pert[$i][$j]['b'][0]['nama_tim'],
+                    'id_series' => $pert[$i][$j]['series'][0]['id_series'],
+                    'id_jam' => $pert[$i][$j]['jam'][0]['id_jam'],
+                ]);
+            }
+        }
+        // $this->userModel->save([
+        //     'id_penjadwalan' => ,
+        //     'username' => $data['username'],
+        //     'password' => $password,
+        //     'salt' => $salt,
+        //     'level_user' => 2
+        // ]);
         $data = [
             'pert' => $pert,
             'title' => 'Coba Lagi'
         ];
         return view('admin/penjadwalanGenerate', $data);
+    }
+
+    public function export()
+    {
+        $penjadwalanModel = new PenjadwalanModel();
+        $penjadwalan = $penjadwalanModel->findAll();
+
+        $spreadsheet = new Spreadsheet();
+
+        $spreadsheet->setActiveSheetIndex(0)
+            ->setCellValue('A1', 'id_penjadwalan')
+            ->setCellValue('B1', 'timA')
+            ->setCellValue('C1', 'TimB')
+            ->setCellValue('D1', 'id_series')
+            ->setCellValue('E1', 'id_jam');
+
+        $column = 2;
+
+        foreach ($penjadwalan as $jadwal) {
+            $spreadsheet->setActiveSheetIndex(0)
+                ->setCellValue('A' . $column, $jadwal['name'])
+                ->setCellValue('B' . $column, $jadwal['email'])
+                ->setCellValue('C' . $column, $jadwal['created_at']);
+
+            $column++;
+        }
+
+        $writer = new Xlsx($spreadsheet);
+        $filename = date('Y-m-d-His') . '-Data-User';
+
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename=' . $filename . '.xlsx');
+        header('Cache-Control: max-age=0');
+
+        $writer->save('php://output');
     }
 }

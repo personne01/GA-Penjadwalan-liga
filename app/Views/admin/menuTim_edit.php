@@ -42,7 +42,7 @@
 </style>
 
 <div class="ini">
-    <h3>Edit User</h3>
+    <h3>Edit Tim</h3>
 
     <form action="/menuTim/update/<?= $tim['id_tim']; ?>" method="post">
         <?= csrf_field(); ?>
@@ -83,7 +83,7 @@
                 </div> -->
             </div>
         </div>
-        <input type="submit" id="btnSubmit" value="Submit"> </input>
+        <input type="submit" id="btnSubmit" value="Save"> </input>
     </form>
 </div>
 <?= $this->endSection(); ?>

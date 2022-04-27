@@ -24,12 +24,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/about">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/desa">Desa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
                     </ul>
                 </div>
                 <div class="modal-footer border-0 gap-3" style="padding: 2rem; padding-top: 0.75rem">
@@ -47,12 +41,6 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/desa">Desa</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Developer</a>
             </li>
         </ul>
         <div class="gap-3">

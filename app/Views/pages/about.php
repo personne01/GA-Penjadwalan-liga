@@ -107,8 +107,8 @@
                             Apa ??
                         </h4>
                         <p class="text-caption">
-                            Adalah Sistem Informasi untuk membantu menanggulangi bencana covid<br class="d-sm-inline d-none" />
-                            Melalui digitalisasi pendaftaran Covid
+                            Kita adalah Sistem membantu penjadwalan liga Futsal Profesional Indonesia<br class="d-sm-inline d-none" />
+                            Menggunakan algoritma Genetika
                         </p>
                     </li>
                     <li class="list-unstyled" style="margin-bottom: 2rem">
@@ -119,8 +119,8 @@
                             Bagaimana ??
                         </h4>
                         <p class="text-caption">
-                            Kami mendaftar seluruh kawasan di daerah. Dan membaginya ke dalam bentuk yang lebih Spesifik<br class="d-sm-inline d-none" />
-                            Agar data vaksinasi covid-19 juga lebih detail.
+                            Kami ingin membantu panitia untuk membuat sistem penjadwalan<br class="d-sm-inline d-none" />
+                            Yang efisien dalam melakukan penjadwalan
                         </p>
                     </li>
                     <li class="list-unstyled" style="margin-bottom: 4rem">
@@ -131,12 +131,12 @@
                             Kenapa ??
                         </h4>
                         <p class="text-caption">
-                            Karna kami peduli dengan Bencana dan kami punya value di bidang ini. <br class="d-sm-inline d-none" />
-                            Paperless dan social-distancing-able yang kami harapkan.
+                            Karna kami peduli dengan kemajuan futsal nasional. <br class="d-sm-inline d-none" />
+                            Paperless dan tech looking yang kami harapkan.
                         </p>
                     </li>
                 </ul>
-                <button class="btn btn-learn text-white">Learn More</button>
+                <button class="btn btn-learn text-white"><a style="text-decoration: none; color:white;" href="https://github.com/personne01/GA-Penjadwalan-liga">Participate</a></button>
             </div>
         </div>
     </div>
