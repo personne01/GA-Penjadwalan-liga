@@ -147,8 +147,8 @@
         </form>
     </div>
     <div class="generate">
-        <a href="/menuPenjadwalan/generate">
-            <button id="generate">generate</button>
+        <a href="">
+            <button id="generate" onclick="activeFunction()">generate</button>
         </a>
         <button id="delete">
             <a href="/menuPenjadwalan">Delete</a>
@@ -156,5 +156,65 @@
     </div>
 </div>
 
+<div style="margin: 40px auto; width : 100%;">
+    <h1>Jadwal Pertanndingan</h1>
+</div>
 
+<table>
+    <thead>
+        <tr>
+            <th>id_penjadwalan</th>
+            <th>Tim Bertanding</th>
+            <th>Tempat</th>
+            <th>Id_series</th>
+            <th>Tanggal</th>
+            <th>Waktu</th>
+        </tr>
+    </thead>
+
+    <tbody class="jadwal" id="muncul">
+
+        <?php for ($i = 1; $i <= 7; $i++) {  ?>
+            <?php for ($j = 1; $j <= 4; $j++) { ?>
+                <tr>
+                    <td>
+                    </td>
+                    <td><?= $pert[$i][$j]['a'][0]['nama_tim'] . " VS " . $pert[$i][$j]['b'][0]['nama_tim'] ?></td>
+                    <td><?= $pert[$i][$j]['series'][0]['tempat'] ?></td>
+                    <td><?= $pert[$i][$j]['series'][0]['id_series'] ?></td>
+                    <td><?= $pert[$i][$j]['series'][0]['tanggal'] ?></td>
+                    <td><?= $pert[$i][$j]['jam'][0]['jam_mulai'] . " - " . $pert[$i][$j]['jam'][0]['jam_selesai'] ?></td>
+
+                    <td>
+                        <button>
+                            <ion-icon name="create"></ion-icon>
+                        </button>
+                        <button>
+                            <ion-icon name="trash"></ion-icon>
+                        </button>
+                    </td>
+                </tr>
+            <?php } ?>
+        <?php } ?>
+
+    </tbody>
+</table>
+
+
+<script>
+    function activeFunction() {
+        var element = document.getElementById("generate");
+        element.classList.toggle("activeGenerate");
+
+        var jadwal = document.getElementById("muncul");
+        jadwal.classList.toggle("activeJadwal");
+        jadwal.classList.remove("jadwal");
+
+    }
+
+    function deleteFunction() {
+        var deleteJadwal = docment.getElementById("muncul");
+        deleteJadwal.classList.remove("activeJadwal");
+    }
+</script>
 <?= $this->endSection(); ?>
