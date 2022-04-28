@@ -154,10 +154,14 @@
             <a href="/menuPenjadwalan">Delete</a>
         </button>
     </div>
+
 </div>
 
 <div style="margin: 40px auto; width : 100%;">
     <h1>Jadwal Pertanndingan</h1>
+    <button id="export">
+        <a href="/menuPenjadwalan/export">Export</a>
+    </button>
 </div>
 
 <table>

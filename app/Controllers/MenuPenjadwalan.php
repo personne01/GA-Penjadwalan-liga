@@ -92,7 +92,7 @@ class MenuPenjadwalan extends BaseController
         $penjadwalanModel = new PenjadwalanModel();
         $penjadwalan = $penjadwalanModel->findAll();
 
-        $spreadsheet = new Spreadsheet();
+        $spreadsheet = new Spreadsheet;
 
         $spreadsheet->setActiveSheetIndex(0)
             ->setCellValue('A1', 'id_penjadwalan')
@@ -105,15 +105,17 @@ class MenuPenjadwalan extends BaseController
 
         foreach ($penjadwalan as $jadwal) {
             $spreadsheet->setActiveSheetIndex(0)
-                ->setCellValue('A' . $column, $jadwal['name'])
-                ->setCellValue('B' . $column, $jadwal['email'])
-                ->setCellValue('C' . $column, $jadwal['created_at']);
+                ->setCellValue('A' . $column, $jadwal['id_penjadwalan'])
+                ->setCellValue('B' . $column, $jadwal['timA'])
+                ->setCellValue('C' . $column, $jadwal['timB'])
+                ->setCellValue('D' . $column, $jadwal['id_series'])
+                ->setCellValue('E' . $column, $jadwal['id_jam']);
 
             $column++;
         }
 
         $writer = new Xlsx($spreadsheet);
-        $filename = date('Y-m-d-His') . '-Data-User';
+        $filename = date('Y-m-d-His') . '-Data-Penjadwalan';
 
         header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         header('Content-Disposition: attachment;filename=' . $filename . '.xlsx');
