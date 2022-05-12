@@ -133,17 +133,42 @@
     }
 </style>
 
+
 <div class="formToCount">
     <div class="inputan">
-        <form action="">
-            <p>Populasi</p>
-            <input type="number" placeholder="Masukkan nilai Populasi">
-            <p>Generasi</p>
-            <input type="number" placeholder="Masukkan nilai Generasi">
-            <p>Probabilitas Mutasi</p>
-            <input type="number" placeholder="Masukkan nilai Probabilitas Mutasi">
-            <p>Probabilitas Crossover</p>
-            <input type="number" placeholder="Masukkan nilai Probabilitas Crossover">
+        <form action="/MenuPenjadwalan/index">
+            <div style="margin-bottom: 1.75rem">
+                <label for="populasi" class="d-block input-label">Populasi</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0 invalid-feedback" type="number" name="Populasi" id="Populasi" placeholder="Masukkan Jumlah Populasi" autocomplete="on" required autofocus value="10" />
+
+                </div>
+            </div>
+            <div style="margin-top: 1rem">
+                <label for="generasi" class="d-block input-label">Generasi</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0" type="number" name="generasi" id="populasi" placeholder="Masukkan Jumlah generasi" required value="1000" />
+                    <div onclick="togglePassword()">
+
+                    </div>
+
+                </div>
+            </div>
+            <div style="margin-top: 1rem">
+                <label for="probmutasi" class="d-block input-label">Probabilitas Mutasi</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0" type="number" name="probmutasi" id="probmutasi" placeholder="Masukkan Probabilitas Mutasi" required value="0.1" />
+
+                </div>
+
+            </div>
+            <div style="margin-top: 1rem">
+                <label for="probcross" class="d-block input-label">Probabilitas Crossover</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0" type="number" name="probcross" id="probcross" placeholder="Masukkan Probabilitas Crossover" required value="0.5" />
+                </div>
+
+            </div>
         </form>
     </div>
     <div class="generate">
@@ -151,10 +176,62 @@
             <button id="generate">generate</button>
         </a>
         <button id="delete">
-            <a href="/menuPenjadwalan">Delete</a>
+            <a href="/menuPenjadwalan/delete">Delete</a>
         </button>
     </div>
 </div>
+<div style="margin: 40px auto; width : 100%;">
+    <h1>Jadwal Pertandingan</h1>
+    <button id="export">
+        <a href="/menuPenjadwalan/export">Export</a>
+    </button>
+</div>
 
+
+<?php if (session()->getFlashdata('generate')) : ?>
+    <div style="width:80%; font-size: large; background-color: var(--green); opacity: 60%; padding: 20px; border-radius: 20px; text-align:center;">
+        <p style="color:white;"><?= session()->getFlashdata('generate'); ?></p>
+    </div>
+<?php endif; ?>
+
+
+<?php if (session()->getFlashdata('hapus')) : ?>
+    <div style="width:80%; font-size: large; background-color: red; opacity: 60%; padding: 20px; border-radius: 20px; text-align:center;">
+        <p style="color:white;"><?= session()->getFlashdata('hapus'); ?></p>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->getFlashdata('download')) : ?>
+    <div style="width:80%; font-size: large; background-color: red; opacity: 60%; padding: 20px; border-radius: 20px; text-align:center;">
+        <p style="color:white;"><?= session()->getFlashdata('download'); ?></p>
+    </div>
+<?php endif; ?>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>TimA</th>
+            <th>TimB</th>
+            <th>Series</th>
+            <th>Tanggal</th>
+            <th>Waktu</th>
+        </tr>
+    </thead>
+
+    <tbody class="jadwal" id="muncul">
+
+        <?php foreach ($penjadwalan as $i) : ?>
+            <tr>
+                <td><?= $i['timA'] ?></td>
+                <td><?= $i['timB'] ?></td>
+                <td><?= $i['id_series']; ?></td>
+                <td><?= $i['tanggal']; ?></td>
+                <td><?= $i['jam_mulai'] . ' - ' . $i['jam_selesai']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+
+    </tbody>
+</table>
 
 <?= $this->endSection(); ?>

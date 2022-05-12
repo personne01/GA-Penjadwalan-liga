@@ -48,6 +48,7 @@ $routes->get('/admin/editSeries/(:segment)', 'MenuSeries::edit/$1');
 $routes->get('/admin/menuJam', 'MenuJam::index');
 $routes->get('/admin/editJam/(:segment)', 'MenuJam::edit/$1');
 $routes->get('/admin/menuPenjadwalan', 'MenuPenjadwalan::index');
+$routes->get('/admin/penjadwalanGenerate', 'MenuPenjadwalan::generate');
 $routes->get('/user', 'User::index'); //ini isi profil
 $routes->get('/user/daftar', 'User::daftar'); //ini untuk crud daftar
 $routes->get('/user/laporan', 'User::laporan'); // ini untuk cetak 

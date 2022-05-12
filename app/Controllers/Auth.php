@@ -128,7 +128,14 @@ class Auth extends BaseController
                     'level_user' => $users['level_user']
                 ];
                 $this->session->set($sessLogin);
-                return redirect()->to('/user');
+
+                if ($users['level_user'] == 1) {
+                    session()->setFlashdata('username', $users['username']);
+                    return redirect()->to('/admin');
+                } else if ($users['level_user'] == 2) {
+                    session()->setFlashdata('username', $users['username']);
+                    return redirect()->to('/user');
+                }
             }
         } else {
             //jika username tidak ditemukan, balikkan ke halaman login

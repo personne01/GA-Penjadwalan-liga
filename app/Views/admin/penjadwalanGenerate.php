@@ -135,26 +135,56 @@
 
 <div class="formToCount">
     <div class="inputan">
-        <form action="">
-            <p>Populasi</p>
-            <input type="number" placeholder="Masukkan nilai Populasi">
-            <p>Generasi</p>
-            <input type="number" placeholder="Masukkan nilai Generasi">
-            <p>Probabilitas Mutasi</p>
-            <input type="number" placeholder="Masukkan nilai Probabilitas Mutasi">
-            <p>Probabilitas Crossover</p>
-            <input type="number" placeholder="Masukkan nilai Probabilitas Crossover">
+        <form action="/MenuPenjadwalan/generate">
+            <div style="margin-bottom: 1.75rem">
+                <label for="populasi" class="d-block input-label">Populasi</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0 invalid-feedback" type="number" name="Populasi" id="Populasi" placeholder="Masukkan Jumlah Populasi" autocomplete="on" required autofocus value="10" />
+
+                </div>
+            </div>
+            <div style="margin-top: 1rem">
+                <label for="generasi" class="d-block input-label">Generasi</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0" type="number" name="generasi" id="populasi" placeholder="Masukkan Jumlah generasi" required value="1000" />
+                    <div onclick="togglePassword()">
+
+                    </div>
+
+                </div>
+            </div>
+            <div style="margin-top: 1rem">
+                <label for="probmutasi" class="d-block input-label">Probabilitas Mutasi</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0" type="number" name="probmutasi" id="probmutasi" placeholder="Masukkan Probabilitas Mutasi" required value="0.1" />
+
+                </div>
+
+            </div>
+            <div style="margin-top: 1rem">
+                <label for="probcross" class="d-block input-label">Probabilitas Crossover</label>
+                <div class="d-flex w-100 div-input">
+                    <input class="input-field border-0" type="number" name="probcross" id="probcross" placeholder="Masukkan Probabilitas Crossover" required value="0.5" />
+                </div>
+
+            </div>
         </form>
     </div>
     <div class="generate">
         <a href="">
-            <button id="generate" onclick="activeFunction()">generate</button>
+            <button id="generate" type="submit" onclick="activeFunction()">generate</button>
         </a>
         <button id="delete">
             <a href="/menuPenjadwalan">Delete</a>
         </button>
     </div>
 
+</div>
+
+<div style="width:80%; font-size: large; background-color: var(--green); opacity: 60%; padding: 20px; border-radius: 20px; text-align:center;">
+    <?php if (session()->getFlashdata('generate')) : ?>
+        <p style="color:white;"><?= session()->getFlashdata('generate'); ?></p>
+    <?php endif; ?>
 </div>
 
 <div style="margin: 40px auto; width : 100%;">
@@ -167,28 +197,25 @@
 <table>
     <thead>
         <tr>
-            <th>Tim Bertanding</th>
-            <th>Tempat</th>
-            <th>Id_series</th>
+            <th>Tim A</th>
+            <th>Tim B</th>
+            <th>Series Ke-n</th>
             <th>Tanggal</th>
-            <th>Waktu</th>
+            <th>Rentang Jam</th>
         </tr>
     </thead>
 
     <tbody class="jadwal" id="muncul">
 
-        <?php for ($i = 1; $i <= 7; $i++) {  ?>
-            <?php for ($j = 1; $j <= 4; $j++) { ?>
-                <tr>
-                    <td><?= $pert[$i][$j]['a'][0]['nama_tim'] . " VS " . $pert[$i][$j]['b'][0]['nama_tim'] ?></td>
-                    <td><?= $pert[$i][$j]['series'][0]['tempat'] ?></td>
-                    <td><?= $pert[$i][$j]['series'][0]['id_series'] ?></td>
-                    <td><?= $pert[$i][$j]['series'][0]['tanggal'] ?></td>
-                    <td><?= $pert[$i][$j]['jam'][0]['jam_mulai'] . " - " . $pert[$i][$j]['jam'][0]['jam_selesai'] ?></td>
-                </tr>
-            <?php } ?>
-        <?php } ?>
-
+        <?php foreach ($pertandingan as $jadwal) : ?>
+            <tr>
+                <td><?= $jadwal['timA']; ?></td>
+                <td><?= $jadwal['timB']; ?></td>
+                <td><?= $jadwal['id_series']; ?></td>
+                <td><?= $jadwal['tanggal']; ?></td>
+                <td><?= $jadwal['jam_mulai'] . "-" . $jadwal['jam_selesai']; ?></td>
+            </tr>
+        <?php endforeach; ?>
     </tbody>
 </table>
 

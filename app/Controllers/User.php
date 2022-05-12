@@ -35,15 +35,15 @@ class User extends BaseController
     public function index()
     {
         $data = [
-            'title' => "User - Sivax"
+            'title' => 'Admin - FFI'
         ];
         //cek apakah ada session bernama isLogin
         if (!$this->session->has('isLogin')) {
             return redirect()->to('/auth/login');
         }
 
-        if ($this->session->get('level_user') == 1) {
-            return redirect()->to('/admin');
+        if ($this->session->get('level_user') != 2) {
+            return redirect()->to('/user');
         }
 
         return view('user/index', $data);

@@ -92,7 +92,7 @@
         <div class="d-flex flex-lg-row flex-column align-items-center">
             <!-- Left Column -->
             <div class="img-hero text-center justify-content-center d-flex">
-                <img id="hero" class="img-fluid" src="http://api.elements.buildwithangga.com/storage/files/2/assets/Content/Content3/Content-3-1.png" alt="" />
+                <img id="hero" class="img-fluid" src="<?php echo base_url('/assets/img-hero.webp') ?>" alt="" />
             </div>
 
             <!-- Right Column -->

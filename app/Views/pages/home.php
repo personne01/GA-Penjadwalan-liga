@@ -33,7 +33,7 @@ $this->extend('layout/template');
       </div>
       <!-- Right Column -->
       <div class="right-column text-center d-flex justify-content-lg-end justify-content-center pe-0">
-        <img id="img-fluid" class="h-auto mw-100" src="http://api.elements.buildwithangga.com/storage/files/2/assets/Header/Header4/Header-4-2.png" alt="" />
+        <img id="img-fluid" class="h-auto mw-100" src="<?php echo base_url('/assets/home-hero.webp') ?>" alt="" />
       </div>
     </div>
   </div>
